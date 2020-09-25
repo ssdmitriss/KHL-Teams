@@ -33,7 +33,6 @@ class MainTableViewController: UITableViewController {
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return teams.count
     }
     
@@ -59,42 +58,15 @@ class MainTableViewController: UITableViewController {
             }
         }
     }
-    //    func fetchData() {
-    //        guard let url = URL(string: jsonURL) else { return }
-    //
-    //        URLSession.shared.dataTask(with: url) { (data, response, error) in
-    //
-    //            guard let data = data else { return }
-    //            if let error = error {
-    //                print(error.localizedDescription)
-    //                return
-    //            }
-    //
-    //            if let response = response {
-    //                print(response)
-    //            }
-    //
-    //            do {
-    //                self.teams = try JSONDecoder().decode([Team].self, from: data)
-    //                DispatchQueue.main.async {
-    //                    self.tableView.reloadData()
-    //                    self.tableView.separatorStyle = .singleLine
-    //                }
-    //            } catch let error {
-    //                print(error)
-    //            }
-    //        } .resume()
-    //    }
+  
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow {
             let vc = segue.destination as! DetailsViewController
             vc.team = teams[indexPath.row]
         }
-        
-        
-        
     }
+    
 }
 
 
